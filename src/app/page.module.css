@@ -1,0 +1,239 @@
+/* App-specific styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.appHeader {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.appHeader h1 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.appHeader p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.appMain {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  min-height: 0;
+}
+
+.appContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  width: 100%;
+  height: calc(100vh - 200px);
+}
+
+/* Left Panel - Calendars */
+.leftPanel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.calendarsContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.calendarsContainer h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.calendarsScroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  min-height: 0;
+}
+
+.calendarsScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.calendarsScroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.calendarsScroll::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.calendarsScroll::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Right Panel - Logging and Trends */
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.loggingSection {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.trendsSection {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Header styles for authentication */
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--text-color);
+}
+
+.userInfo span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.signOutButton {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.signOutButton:hover {
+  background: var(--accent-hover-color);
+}
+
+/* Loading and error states */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.loadingContainer h1 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.loadingContainer p {
+  color: var(--text-muted);
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .appContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: calc(100vh - 200px);
+  }
+  
+  .leftPanel {
+    max-height: 400px;
+  }
+  
+  .rightPanel {
+    flex-direction: row;
+  }
+  
+  .loggingSection,
+  .trendsSection {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .appMain {
+    padding: 16px;
+  }
+  
+  .appContainer {
+    gap: 16px;
+  }
+  
+  .leftPanel,
+  .rightPanel {
+    padding: 16px;
+  }
+  
+  .rightPanel {
+    flex-direction: column;
+  }
+  
+  .appHeader h1 {
+    font-size: 1.5rem;
+  }
+  
+  .appHeader p {
+    font-size: 1rem;
+  }
+} 
